@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.bestexpress</groupId>
+        <artifactId>commonlib</artifactId>
+        <version>2.3</version>
+    </parent>
+
+    <groupId>com.store59</groupId>
+    <artifactId>kylin-rpc-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+
+    <modules>
+        <module>kylin-rpc-server</module>
+        <module>kylin-rpc-client</module>
+        <module>kylin-rpc-protocol-hessian</module>
+        <module>kylin-rpc-context</module>
+        <module>kylin-rpc-core</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <java.version>1.8</java.version>
+        <!-- 3 party start -->
+        <mybatis.version>3.2.8</mybatis.version>
+        <mybatis-spring.version>1.2.3</mybatis-spring.version>
+        <tomcat-jdbc.version>8.0.23</tomcat-jdbc.version>
+        <hessian.version>4.0.37</hessian.version>
+        <commons-lang3.version>3.4</commons-lang3.version>
+        <raven.log4j2.version>6.0.0</raven.log4j2.version>
+        <disruptor.version>3.2.1</disruptor.version>
+        <jackson-jaxrs-json-provider.version>2.6.0</jackson-jaxrs-json-provider.version>
+        <!-- 3 party end -->
+    </properties>
+
+    <dependencyManagement>
+
+        <dependencies>
+            <dependency>
+                <groupId>com.store59</groupId>
+                <artifactId>kylin-rpc-client</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.store59</groupId>
+                <artifactId>kylin-rpc-context</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>kylin-rpc-protocol-hessian</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.store59</groupId>
+                <artifactId>kylin-rpc-server</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.store59</groupId>
+                <artifactId>kylin-rpc-core</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+
+
+            <!-- 3 party start -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis-spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.tomcat</groupId>
+                <artifactId>tomcat-jdbc</artifactId>
+                <version>${tomcat-jdbc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.caucho</groupId>
+                <artifactId>hessian</artifactId>
+                <version>4.0.38</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.kencochrane.raven</groupId>
+                <artifactId>raven-log4j2</artifactId>
+                <version>${raven.log4j2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.lmax</groupId>
+                <artifactId>disruptor</artifactId>
+                <version>${disruptor.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.jaxrs</groupId>
+                <artifactId>jackson-jaxrs-json-provider</artifactId>
+                <version>${jackson-jaxrs-json-provider.version}</version>
+            </dependency>
+            <!-- 3 party end -->
+        </dependencies>
+
+    </dependencyManagement>
+    <!--将ssm_dao上传私服  -->
+    <distributionManagement>
+        <!--pom.xml这里<id> 和 settings.xml 配置 <id> 对应  -->
+        <repository>
+            <id>releases</id>
+            <url>http://localhost:8081/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <url>http://localhost:8081/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>

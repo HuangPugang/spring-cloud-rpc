@@ -1,0 +1,3 @@
+org.springframework.context.ApplicationListener=\
+com.store59.kylin.rpc.core.boot.KylinBootApplicationListener,\
+com.store59.kylin.rpc.core.boot.KylinApplicationPreparedListener
